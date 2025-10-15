@@ -50,17 +50,23 @@ pnpm-lock.yaml
 out/
 
 # ========== Machine Learning ==========
-# Model files (KEEP the main models, ignore temp/test models)
-# phishing_model.pkl - KEEP (main model)
-# RandomForest_phishing_model.pkl - KEEP (main model)
+# Model files (TOO LARGE for git - use Git LFS or download separately)
+*.pkl
+phishing_model.pkl
+RandomForest_phishing_model.pkl
 *_temp.pkl
 *_test.pkl
 *_backup.pkl
 
-# Dataset (large files)
-# malicious_phish.csv - KEEP (needed for training)
+# Dataset (TOO LARGE for git - 85MB+)
+*.csv
+malicious_phish.csv
 *.csv.gz
 *.csv.bz2
+
+# Note: Download model & dataset separately from:
+# - Google Drive / Dropbox
+# - Or use Git LFS for large files
 
 # ========== LaTeX / Proposal ==========
 # LaTeX auxiliary files
