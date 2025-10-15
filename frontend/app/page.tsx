@@ -38,11 +38,12 @@ export default function Home() {
     try {
       // Backend URL from environment variable or fallback to ngrok
       const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL || 'https://879873ce7d41.ngrok-free.app'
-      
+
       const response = await fetch(`${BACKEND_URL}/api/predict/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'ngrok-skip-browser-warning': 'true',  // Skip ngrok warning page
         },
         body: JSON.stringify({ url }),
       })
@@ -105,7 +106,7 @@ export default function Home() {
           <div className="result">
             <div className="result-left">
               <div className="result-title">Hasil Analisis</div>
-              
+
               <div className={`result-status ${getResultClass(result.prediction)}`}>
                 {getResultMessage(result.prediction)}
               </div>
