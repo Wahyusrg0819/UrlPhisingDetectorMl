@@ -29,43 +29,22 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.middleware.common.CommonMiddleware',
+    # CSRF disabled for API (development only)
+    # 'django.middleware.csrf.CsrfViewMiddleware',
 ]
 
-# CORS Configuration
-CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins
-
-# Specific allowed origins
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-    "https://url-phising-detector-ml.vercel.app",  # Your Vercel deployment
+# Disable CSRF for API endpoints (development only)
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.ngrok-free.app',
+    'https://*.ngrok.io',
+    'https://url-phising-detector-ml.vercel.app',
 ]
 
-# Allow credentials
+# CORS Configuration - SIMPLE & PERMISSIVE (Development)
+CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
-
-# Allow all methods
-CORS_ALLOW_METHODS = [
-    'DELETE',
-    'GET',
-    'OPTIONS',
-    'PATCH',
-    'POST',
-    'PUT',
-]
-
-# Allow all headers
-CORS_ALLOW_HEADERS = [
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
-]
+CORS_ALLOW_METHODS = ['DELETE', 'GET', 'OPTIONS', 'PATCH', 'POST', 'PUT']
+CORS_ALLOW_HEADERS = ['*']
 
 ROOT_URLCONF = 'config.urls'
 

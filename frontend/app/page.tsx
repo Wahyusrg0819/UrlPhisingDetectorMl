@@ -37,7 +37,7 @@ export default function Home() {
 
     try {
       // Backend URL from environment variable or fallback to ngrok
-      const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL || 'https://879873ce7d41.ngrok-free.app'
+      const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL || 'https://ef8848b14210.ngrok-free.app'
 
       const response = await fetch(`${BACKEND_URL}/api/predict/`, {
         method: 'POST',

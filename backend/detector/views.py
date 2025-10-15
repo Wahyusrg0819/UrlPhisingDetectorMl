@@ -3,21 +3,28 @@ import joblib
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
+from django.views.decorators.csrf import csrf_exempt
 from .feature_extractor import extract_features
 
 # Load Random Forest model saat startup
-MODEL_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'RandomForest_phishing_model.pkl')
+MODEL_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'phishing_model.pkl')
 try:
     model = joblib.load(MODEL_PATH)
     print(f"✓ Model loaded: {type(model).__name__}")
     print(f"  Classes: {model.classes_}")
-    print(f"  Number of trees: {model.n_estimators}")
+    if hasattr(model, 'n_estimators'):
+        print(f"  Number of trees: {model.n_estimators}")
 except Exception as e:
     print(f"✗ Error loading model: {e}")
+    print(f"  Looking for: {MODEL_PATH}")
     model = None
 
-@api_view(['POST'])
+@api_view(['POST', 'OPTIONS'])
+@csrf_exempt
 def predict_url(request):
+    # Handle OPTIONS request for CORS preflight
+    if request.method == 'OPTIONS':
+        return Response(status=status.HTTP_200_OK)
     url = request.data.get('url', '')
     
     if not url:
