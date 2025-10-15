@@ -7,7 +7,14 @@ SECRET_KEY = 'django-insecure-dev-key-change-in-production'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+# Allow ngrok and local access
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '.ngrok.io',  # Allow all ngrok subdomains
+    '.ngrok-free.app',  # New ngrok domain
+    '*',  # Allow all (development only)
+]
 
 INSTALLED_APPS = [
     'django.contrib.auth',
@@ -24,7 +31,14 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS Configuration
+CORS_ALLOW_ALL_ORIGINS = True  # Development only
+
+# For production, use specific origins:
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:3000",
+#     "https://your-frontend.vercel.app",
+# ]
 
 ROOT_URLCONF = 'config.urls'
 
