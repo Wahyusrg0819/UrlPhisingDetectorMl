@@ -1,0 +1,71 @@
+@startuml
+!theme plain
+skinparam defaultFontName Times New Roman
+skinparam defaultFontSize 11
+
+title SDLC Waterfall - Cascade View (Seperti Air Terjun)
+
+skinparam rectangle {
+  BackgroundColor<<Phase1>> #E3F2FD
+  BorderColor<<Phase1>> #1976D2
+  BackgroundColor<<Phase2>> #F3E5F5
+  BorderColor<<Phase2>> #7B1FA2
+  BackgroundColor<<Phase3>> #E8F5E9
+  BorderColor<<Phase3>> #388E3C
+  BackgroundColor<<Phase4>> #FFF3E0
+  BorderColor<<Phase4>> #F57C00
+  BackgroundColor<<Phase5>> #FCE4EC
+  BorderColor<<Phase5>> #C2185B
+  BackgroundColor<<Phase6>> #E0F2F1
+  BorderColor<<Phase6>> #00796B
+}
+
+rectangle "**1. Requirements**\n**Analysis**\n━━━━━━━━━━━━\n• Identifikasi masalah\n• Analisis kebutuhan\n• Studi literatur\n• Definisi 7 fitur\n\n✓ 2 minggu" as REQ <<Phase1>>
+
+rectangle "    **2. System**\n    **Design**\n    ━━━━━━━━━━━━\n    • Arsitektur sistem\n    • Flowchart & diagram\n    • API design\n    • UI/UX mockup\n\n    ✓ 2 minggu" as DESIGN <<Phase2>>
+
+rectangle "        **3. Implementation**\n        ━━━━━━━━━━━━━━━━\n        • Training ML model\n        • Backend (Django)\n        • Frontend (Next.js)\n        • Integration\n\n        ✓ 4 minggu" as IMPL <<Phase3>>
+
+rectangle "            **4. Testing &**\n            **Evaluation**\n            ━━━━━━━━━━━━\n            • Model evaluation\n            • Unit testing\n            • Integration test\n            • UAT\n\n            ✓ 2 minggu" as TEST <<Phase4>>
+
+rectangle "                **5. Deployment**\n                ━━━━━━━━━━━━━\n                • Setup environment\n                • Deploy backend\n                • Deploy frontend\n                • Documentation\n\n                ⚠ 1 minggu" as DEPLOY <<Phase5>>
+
+rectangle "                    **6. Maintenance**\n                    ━━━━━━━━━━━━━━\n                    • Monitor\n                    • Bug fixes\n                    • Retraining\n                    • Updates\n\n                    ○ Ongoing" as MAINT <<Phase6>>
+
+REQ -[#1976D2,bold]-> DESIGN : Output:\nRequirement\nSpec
+DESIGN -[#7B1FA2,bold]-> IMPL : Output:\nDesign\nDocument
+IMPL -[#388E3C,bold]-> TEST : Output:\nWorking\nSystem
+TEST -[#F57C00,bold]-> DEPLOY : Output:\nTest\nReport
+DEPLOY -[#C2185B,bold]-> MAINT : Output:\nDeployed\nApp
+
+note top of REQ
+  <b>Bulan 1</b>
+  Start: Week 1-2
+end note
+
+note top of DESIGN
+  <b>Bulan 1-2</b>
+  Week 3-4
+end note
+
+note top of IMPL
+  <b>Bulan 2-3</b>
+  Week 5-8
+end note
+
+note top of TEST
+  <b>Bulan 3</b>
+  Week 9-10
+end note
+
+note top of DEPLOY
+  <b>Bulan 4</b>
+  Week 11
+end note
+
+note top of MAINT
+  <b>Future</b>
+  Continuous
+end note
+
+@enduml

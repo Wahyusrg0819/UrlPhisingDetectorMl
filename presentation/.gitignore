@@ -1,0 +1,15 @@
+# Generated PowerPoint files (regenerate with VBA)
+*.pptx
+*.ppt
+
+# Backup files
+*.bak
+*.backup
+
+# Temporary files
+~$*.pptx
+~$*.ppt
+
+# Keep source files
+!GeneratePresentation.vba
+!README.md

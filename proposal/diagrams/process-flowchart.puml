@@ -1,0 +1,51 @@
+@startuml
+!theme plain
+skinparam defaultFontName Times New Roman
+skinparam defaultFontSize 11
+
+title Flowchart Proses Aplikasi Web Deteksi URL Phishing
+
+|User|
+start
+:Buka aplikasi web;
+:Input URL;
+
+|Frontend|
+if (URL valid?) then (tidak)
+  :Tampilkan error;
+  stop
+else (ya)
+  :Kirim POST request
+  /api/predict/;
+endif
+
+|Backend|
+:Terima request;
+:Ekstraksi 7 fitur
+leksikal;
+
+|ML Model|
+:Load Random Forest
+(100 trees);
+:Prediksi kelas;
+:Hitung probabilitas;
+
+|Backend|
+:Buat JSON response;
+:Kirim ke Frontend;
+
+|Frontend|
+:Parse response;
+:Tampilkan hasil;
+
+|User|
+:Lihat hasil analisis;
+
+if (Analisis lagi?) then (ya)
+  :Clear form;
+  detach
+else (tidak)
+  stop
+endif
+
+@enduml

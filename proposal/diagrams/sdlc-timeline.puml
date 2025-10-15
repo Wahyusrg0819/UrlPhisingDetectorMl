@@ -1,0 +1,57 @@
+@startuml
+!theme plain
+skinparam defaultFontName Times New Roman
+skinparam defaultFontSize 11
+
+title Timeline SDLC Waterfall (4 Bulan)
+
+scale 1.5
+
+[Requirements Analysis] as REQ
+[System Design] as DESIGN
+[ML Model Development] as ML
+[Backend Implementation] as BACKEND
+[Frontend Implementation] as FRONTEND
+[Integration] as INTEGRATE
+[Testing & Evaluation] as TEST
+[Deployment] as DEPLOY
+[Documentation] as DOC
+
+REQ is colored in LightBlue
+DESIGN is colored in Lavender
+ML is colored in LightGreen
+BACKEND is colored in LightGreen
+FRONTEND is colored in LightGreen
+INTEGRATE is colored in LightGreen
+TEST is colored in LightYellow
+DEPLOY is colored in LightPink
+DOC is colored in LightCyan
+
+REQ lasts 14 days
+DESIGN lasts 14 days
+ML lasts 21 days
+BACKEND lasts 14 days
+FRONTEND lasts 14 days
+INTEGRATE lasts 7 days
+TEST lasts 14 days
+DEPLOY lasts 7 days
+DOC lasts 120 days
+
+REQ -> DESIGN
+DESIGN -> ML
+DESIGN -> BACKEND
+DESIGN -> FRONTEND
+ML -> INTEGRATE
+BACKEND -> INTEGRATE
+FRONTEND -> INTEGRATE
+INTEGRATE -> TEST
+TEST -> DEPLOY
+REQ -> DOC
+DESIGN -> DOC
+ML -> DOC
+BACKEND -> DOC
+FRONTEND -> DOC
+TEST -> DOC
+DEPLOY -> DOC
+
+@enduml

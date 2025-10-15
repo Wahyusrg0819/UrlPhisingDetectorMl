@@ -1,0 +1,65 @@
+\chapter{PENDAHULUAN}
+
+\section{Latar Belakang}
+
+Di era digital saat ini, internet telah menjadi bagian integral dari kehidupan sehari-hari masyarakat global. Menurut data Internet World Stats tahun 2023, lebih dari 5,3 miliar orang atau sekitar 66\% dari populasi dunia menggunakan internet untuk berbagai keperluan, mulai dari komunikasi, transaksi keuangan, hingga akses informasi. Namun, peningkatan penggunaan internet ini juga diikuti oleh meningkatnya ancaman keamanan siber, khususnya serangan \textit{phishing}.
+
+\textit{Phishing} merupakan salah satu bentuk serangan siber yang paling umum dan berbahaya, di mana penyerang mencoba untuk mendapatkan informasi sensitif seperti kredensial login, nomor kartu kredit, atau data pribadi lainnya dengan menyamar sebagai entitas tepercaya. Menurut laporan Anti-Phishing Working Group (APWG) tahun 2023, terdapat lebih dari 4,7 juta serangan \textit{phishing} yang terdeteksi sepanjang tahun 2022, dengan kerugian finansial mencapai miliaran dollar secara global.
+
+Salah satu metode \textit{phishing} yang paling sering digunakan adalah melalui URL atau tautan yang menyesatkan. Penyerang membuat situs web palsu yang tampak identik dengan situs web resmi untuk menipu korban agar memasukkan informasi sensitif mereka. Karakteristik URL \textit{phishing} seringkali dapat diidentifikasi melalui fitur-fitur leksikal seperti panjang URL yang tidak wajar, penggunaan karakter khusus yang berlebihan, domain yang mencurigakan, dan pola-pola tertentu yang membedakannya dari URL legitimate.
+
+Deteksi URL \textit{phishing} secara manual oleh pengguna awam sangat sulit dilakukan karena teknik penyamaran yang semakin canggih. Oleh karena itu, diperlukan sistem otomatis yang dapat mengidentifikasi URL \textit{phishing} dengan cepat dan akurat. Pendekatan \textit{machine learning} telah terbukti efektif dalam mendeteksi pola-pola kompleks yang sulit diidentifikasi secara manual.
+
+Penelitian ini mengusulkan perancangan aplikasi web untuk deteksi URL \textit{phishing} menggunakan algoritma \textit{machine learning} berbasis fitur leksikal. Fitur leksikal dipilih karena dapat diekstraksi dengan cepat tanpa perlu mengakses konten halaman web, sehingga sistem dapat memberikan respons real-time. Penggunaan model ringan seperti \textit{Logistic Regression} atau \textit{Random Forest} memungkinkan aplikasi untuk diimplementasikan dengan performa optimal dan sumber daya komputasi yang efisien.
+
+Aplikasi web yang dirancang akan mengintegrasikan \textit{backend} berbasis Django REST Framework untuk pemrosesan data dan prediksi model \textit{machine learning}, serta \textit{frontend} berbasis Next.js untuk antarmuka pengguna yang responsif dan modern. Dengan demikian, aplikasi ini diharapkan dapat memberikan solusi praktis dan mudah diakses untuk melindungi pengguna dari ancaman \textit{phishing}.
+
+\section{Identifikasi Masalah}
+
+Berdasarkan latar belakang yang telah diuraikan, dapat diidentifikasi beberapa masalah utama sebagai berikut:
+
+\begin{enumerate}
+    \item Meningkatnya jumlah serangan \textit{phishing} melalui URL yang menyesatkan, yang menyebabkan kerugian finansial dan pencurian data pribadi pengguna internet.
+    
+    \item Kesulitan pengguna awam dalam mengidentifikasi URL \textit{phishing} secara manual karena teknik penyamaran yang semakin canggih dan menyerupai situs web legitimate.
+    
+    \item Keterbatasan sistem deteksi \textit{phishing} yang ada, yang seringkali memerlukan sumber daya komputasi tinggi atau waktu pemrosesan yang lama karena menganalisis konten halaman web secara keseluruhan.
+    
+    \item Kurangnya sistem deteksi \textit{phishing} yang dapat memberikan respons real-time dan mudah diakses oleh pengguna umum melalui antarmuka web yang intuitif.
+\end{enumerate}
+
+\section{Rumusan Masalah}
+
+Berdasarkan identifikasi masalah di atas, rumusan masalah dalam penelitian ini adalah sebagai berikut:
+
+\begin{enumerate}
+    \item Bagaimana mengekstraksi fitur-fitur leksikal dari URL yang dapat membedakan antara URL \textit{phishing} dan URL legitimate secara efektif?
+    
+    \item Bagaimana membangun model klasifikasi \textit{machine learning} yang ringan namun akurat untuk mendeteksi URL \textit{phishing} berdasarkan fitur leksikal?
+    
+    \item Bagaimana mengintegrasikan model klasifikasi ke dalam sistem web yang dapat memberikan prediksi real-time dengan antarmuka yang mudah digunakan?
+\end{enumerate}
+
+\section{Tujuan}
+
+Tujuan dari penelitian ini adalah sebagai berikut:
+
+\subsection{Tujuan Umum}
+
+Merancang dan mengembangkan aplikasi web untuk deteksi URL \textit{phishing} menggunakan algoritma \textit{machine learning} berbasis fitur leksikal yang dapat memberikan prediksi real-time dengan antarmuka yang mudah diakses.
+
+\subsection{Tujuan Khusus}
+
+\begin{enumerate}
+    \item Mengidentifikasi dan mengekstraksi fitur-fitur leksikal yang relevan dari URL untuk membedakan antara URL \textit{phishing} dan URL legitimate, seperti panjang URL, jumlah karakter khusus, keberadaan protokol HTTPS, dan pola domain.
+    
+    \item Membangun dan melatih model klasifikasi \textit{machine learning} menggunakan algoritma ringan seperti \textit{Logistic Regression} atau \textit{Random Forest} dengan dataset URL \textit{phishing} dan legitimate yang representatif.
+    
+    \item Merancang dan mengembangkan \textit{backend} API menggunakan Django REST Framework yang dapat melakukan ekstraksi fitur dan prediksi klasifikasi URL secara efisien.
+    
+    \item Merancang dan mengembangkan \textit{frontend} aplikasi web menggunakan Next.js yang menyediakan antarmuka pengguna yang intuitif untuk input URL dan visualisasi hasil prediksi.
+    
+    \item Mengevaluasi kinerja aplikasi yang dikembangkan menggunakan metrik evaluasi seperti akurasi, presisi, recall, F1-score, dan waktu respons aplikasi.
+    
+    \item Menganalisis hasil evaluasi untuk mengidentifikasi kekuatan dan kelemahan aplikasi, serta memberikan rekomendasi untuk pengembangan lebih lanjut.
+\end{enumerate}

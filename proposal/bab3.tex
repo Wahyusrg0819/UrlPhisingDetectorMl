@@ -1,0 +1,196 @@
+\chapter{METODOLOGI PENELITIAN}
+
+\section{Metode Penelitian}
+
+Penelitian ini menggunakan metode Research and Development (R\&D) dengan pendekatan pengembangan perangkat lunak menggunakan model Waterfall yang telah dimodifikasi. Metode ini dipilih karena sesuai dengan karakteristik pengembangan aplikasi web yang memerlukan tahapan sistematis dan terstruktur.
+
+\section{Tahapan Penelitian}
+
+Penelitian ini dilakukan melalui beberapa tahapan sebagai berikut:
+
+\subsection{Analisis Kebutuhan}
+
+Tahap ini meliputi:
+\begin{enumerate}
+    \item Identifikasi kebutuhan fungsional dan non-fungsional sistem
+    \item Analisis dataset URL \textit{phishing} dan legitimate
+    \item Studi literatur tentang teknik deteksi \textit{phishing}
+    \item Analisis fitur leksikal yang relevan
+\end{enumerate}
+
+\subsection{Perancangan Sistem}
+
+Tahap perancangan meliputi:
+\begin{enumerate}
+    \item Perancangan arsitektur sistem
+    \item Perancangan database dan struktur data
+    \item Perancangan API endpoint
+    \item Perancangan antarmuka pengguna (UI/UX)
+    \item Perancangan alur kerja sistem (flowchart)
+\end{enumerate}
+
+\subsection{Pengembangan Model Machine Learning}
+
+Tahap ini meliputi:
+\begin{enumerate}
+    \item Pengumpulan dan preprocessing dataset
+    \item Ekstraksi fitur leksikal dari URL
+    \item Pembagian data training dan testing (80:20)
+    \item Training model menggunakan algoritma Random Forest
+    \item Evaluasi dan optimasi model
+    \item Serialisasi model untuk deployment
+\end{enumerate}
+
+\subsection{Implementasi Aplikasi Web}
+
+Tahap implementasi meliputi:
+\begin{enumerate}
+    \item Pengembangan backend API menggunakan Django REST Framework
+    \item Implementasi endpoint untuk prediksi URL
+    \item Integrasi model machine learning dengan backend
+    \item Pengembangan frontend menggunakan Next.js
+    \item Implementasi antarmuka pengguna
+    \item Integrasi frontend dengan backend API
+\end{enumerate}
+
+\subsection{Testing dan Evaluasi}
+
+Tahap testing meliputi:
+\begin{enumerate}
+    \item Unit testing untuk setiap komponen
+    \item Integration testing untuk API
+    \item User acceptance testing (UAT)
+    \item Evaluasi kinerja model (akurasi, presisi, recall, F1-score)
+    \item Evaluasi performa aplikasi (response time, throughput)
+\end{enumerate}
+
+\subsection{Dokumentasi}
+
+Tahap dokumentasi meliputi:
+\begin{enumerate}
+    \item Dokumentasi kode program
+    \item Dokumentasi API
+    \item Dokumentasi pengguna
+    \item Penyusunan laporan penelitian
+\end{enumerate}
+
+\section{Diagram Alur Sistem}
+
+\subsection{Flowchart Sistem Keseluruhan}
+
+Flowchart sistem keseluruhan menggambarkan alur kerja aplikasi dari input URL hingga output hasil prediksi.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{diagrams/system-flowchart.png}
+    \caption{Flowchart Sistem Keseluruhan}
+    \label{fig:system-flowchart}
+\end{figure}
+
+\clearpage
+
+\subsection{Use Case Diagram}
+
+Use case diagram menggambarkan interaksi antara pengguna dengan sistem.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{diagrams/usecase-diagram.png}
+    \caption{Use Case Diagram}
+    \label{fig:usecase}
+\end{figure}
+
+\clearpage
+
+\subsection{Sequence Diagram}
+
+Sequence diagram menggambarkan urutan interaksi antara komponen sistem dalam proses prediksi URL.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.95\textwidth]{diagrams/sequence-diagram.png}
+    \caption{Sequence Diagram Prediksi URL}
+    \label{fig:sequence}
+\end{figure}
+
+\clearpage
+
+\subsection{Arsitektur Sistem}
+
+Diagram arsitektur sistem menggambarkan komponen-komponen utama dan hubungan antar komponen.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.95\textwidth]{diagrams/architecture-diagram.png}
+    \caption{Arsitektur Sistem}
+    \label{fig:architecture}
+\end{figure}
+
+\clearpage
+
+\section{Alat dan Bahan}
+
+\subsection{Perangkat Keras}
+
+Spesifikasi perangkat keras yang digunakan:
+\begin{itemize}
+    \item Processor: Intel Core i5 atau setara
+    \item RAM: Minimal 8 GB
+    \item Storage: Minimal 256 GB SSD
+    \item Koneksi Internet: Minimal 10 Mbps
+\end{itemize}
+
+\subsection{Perangkat Lunak}
+
+Perangkat lunak yang digunakan:
+\begin{itemize}
+    \item Sistem Operasi: Windows 10/11, macOS, atau Linux
+    \item Python 3.8 atau lebih tinggi
+    \item Node.js 18 atau lebih tinggi
+    \item Django 4.2
+    \item Django REST Framework 3.14
+    \item Next.js 14
+    \item Scikit-learn 1.6
+    \item Visual Studio Code atau IDE lainnya
+    \item Git untuk version control
+\end{itemize}
+
+\subsection{Dataset}
+
+Dataset yang digunakan:
+\begin{itemize}
+    \item Nama: Malicious Phish Dataset
+    \item Sumber: Kaggle / UCI Machine Learning Repository
+    \item Jumlah: Lebih dari 10,000 URL
+    \item Kategori: Benign, Phishing, Malware, Defacement
+    \item Format: CSV
+\end{itemize}
+
+\section{Jadwal Penelitian}
+
+Penelitian ini direncanakan berlangsung selama 4 bulan dengan rincian sebagai berikut:
+
+\begin{table}[h]
+\centering
+\caption{Jadwal Penelitian}
+\label{tab:jadwal}
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Kegiatan} & \textbf{Bulan 1} & \textbf{Bulan 2} & \textbf{Bulan 3} & \textbf{Bulan 4} \\
+\hline
+Analisis Kebutuhan & X & & & \\
+\hline
+Perancangan Sistem & X & X & & \\
+\hline
+Pengembangan Model ML & & X & X & \\
+\hline
+Implementasi Backend & & & X & \\
+\hline
+Implementasi Frontend & & & X & X \\
+\hline
+Testing \& Evaluasi & & & & X \\
+\hline
+Dokumentasi & X & X & X & X \\
+\hline
+\end{tabular}
+\end{table}

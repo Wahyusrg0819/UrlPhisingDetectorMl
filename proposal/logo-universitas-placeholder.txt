@@ -1,0 +1,22 @@
+INSTRUKSI LOGO UNIVERSITAS
+==========================
+
+File yang dibutuhkan: logo-universitas.png
+
+Letakkan file logo universitas Anda dengan nama "logo-universitas.png" 
+di folder proposal/ agar logo muncul di cover.
+
+Format yang didukung:
+- PNG (recommended)
+- JPG/JPEG
+- PDF
+
+Ukuran yang disarankan:
+- Minimal: 500x500 pixels
+- Optimal: 1000x1000 pixels
+- Format: Square atau portrait
+
+Jika tidak ada logo, Anda bisa:
+1. Download logo UIR dari website resmi
+2. Atau comment baris logo di main.tex:
+   % \includegraphics[width=0.3\textwidth]{logo-universitas.png}

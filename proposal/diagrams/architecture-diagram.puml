@@ -1,0 +1,61 @@
+@startuml
+!theme plain
+skinparam defaultFontName Times New Roman
+skinparam defaultFontSize 12
+
+package "Frontend Layer" {
+  [Next.js Application] as NextJS
+  [React Components] as React
+  [UI/UX Interface] as UI
+}
+
+package "Backend Layer" {
+  [Django REST Framework] as Django
+  [API Endpoints] as API
+  [Feature Extractor] as Extractor
+}
+
+package "Machine Learning Layer" {
+  [Random Forest Model] as Model
+  [Model Serialization\n(pkl file)] as PKL
+}
+
+package "Data Layer" {
+  database "Training Dataset\n(CSV)" as Dataset
+}
+
+cloud "Internet" as Internet
+
+actor "Pengguna" as User
+
+User --> Internet
+Internet --> NextJS : HTTPS Request
+
+NextJS --> React
+React --> UI
+
+NextJS --> API : REST API Call\n(JSON)
+
+API --> Django
+Django --> Extractor : Extract Features
+Extractor --> Model : Predict
+
+Model --> PKL : Load Model
+
+Dataset ..> Model : Training Phase
+
+API --> NextJS : JSON Response
+
+note right of Model
+  Model: Random Forest
+  Accuracy: ~90%
+  Features: 7 lexical features
+end note
+
+note right of API
+  Endpoint: /api/predict/
+  Method: POST
+  Format: JSON
+end note
+
+@enduml

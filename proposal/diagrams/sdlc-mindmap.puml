@@ -1,0 +1,62 @@
+@startmindmap sdlc_mindmap
+!theme plain
+skinparam defaultFontName Times New Roman
+skinparam defaultFontSize 11
+
+title SDLC Waterfall - Mind Map View
+
+* <b>SDLC Waterfall</b>\n<b>Deteksi URL Phishing</b>
+** <color:#1976D2><b>1. Requirements</b></color>
+*** Identifikasi masalah
+*** Analisis kebutuhan
+*** Studi literatur
+*** Definisi 7 fitur
+*** <color:green>✓ 2 minggu</color>
+
+** <color:#7B1FA2><b>2. Design</b></color>
+*** Arsitektur sistem
+*** Flowchart & diagram
+*** API design
+*** UI/UX mockup
+*** <color:green>✓ 2 minggu</color>
+
+** <color:#388E3C><b>3. Implementation</b></color>
+*** ML Model Training
+**** Random Forest
+**** 651,191 URLs
+**** 90.82% accuracy
+*** Backend Django
+**** REST API
+**** Feature extractor
+*** Frontend Next.js
+**** TypeScript
+**** Responsive UI
+*** Integration
+*** <color:green>✓ 4 minggu</color>
+
+left side
+
+** <color:#F57C00><b>4. Testing</b></color>
+*** Model evaluation
+**** Confusion matrix
+**** Metrics
+*** Unit testing
+*** Integration test
+*** UAT
+*** <color:green>✓ 2 minggu</color>
+
+** <color:#C2185B><b>5. Deployment</b></color>
+*** Setup environment
+*** Deploy backend
+*** Deploy frontend
+*** Documentation
+*** <color:orange>⚠ 1 minggu</color>
+
+** <color:#00796B><b>6. Maintenance</b></color>
+*** Monitor performance
+*** Bug fixes
+*** Model retraining
+*** Feature updates
+*** <color:gray>○ Ongoing</color>
+
+@endmindmap

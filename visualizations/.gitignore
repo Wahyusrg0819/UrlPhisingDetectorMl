@@ -1,0 +1,13 @@
+# Generated visualization files (regenerate with generate_visualizations.py)
+*.png
+*.jpg
+*.jpeg
+*.svg
+
+# Keep the folder structure
+!.gitkeep
+!README.md
+
+# Backup files
+*.bak
+*.backup

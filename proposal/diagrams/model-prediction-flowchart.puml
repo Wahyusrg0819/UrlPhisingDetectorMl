@@ -1,0 +1,95 @@
+@startuml
+!theme plain
+skinparam defaultFontName Times New Roman
+skinparam defaultFontSize 12
+
+title Flowchart Logika Prediksi Random Forest Model
+
+start
+
+:Input: Feature array [7 fitur];
+
+:Load Random Forest Model
+(100 decision trees);
+
+partition "Prediksi oleh Setiap Tree" {
+  :tree_predictions = [];
+  
+  :Loop untuk setiap tree (i = 1 to 100);
+  
+  repeat
+    :Tree ke-i menerima input features;
+    
+    :Tree melakukan traversal
+    dari root ke leaf;
+    
+    repeat
+      :Evaluasi kondisi di node;
+      
+      if (kondisi terpenuhi?) then (ya)
+        :Pindah ke left child;
+      else (tidak)
+        :Pindah ke right child;
+      endif
+      
+    repeat while (belum sampai leaf node?) is (ya)
+    ->tidak;
+    
+    :Dapatkan prediksi kelas
+    dari leaf node;
+    
+    :tree_predictions[i] = predicted_class;
+    
+  repeat while (i < 100?) is (ya)
+  ->tidak;
+}
+
+partition "Agregasi Voting" {
+  :Hitung voting untuk setiap kelas:
+  - benign_votes = 0
+  - defacement_votes = 0
+  - malware_votes = 0
+  - phishing_votes = 0;
+  
+  :Loop tree_predictions;
+  
+  repeat
+    if (prediction == 'benign'?) then (ya)
+      :benign_votes++;
+    elseif (prediction == 'defacement'?) then (ya)
+      :defacement_votes++;
+    elseif (prediction == 'malware'?) then (ya)
+      :malware_votes++;
+    else (phishing)
+      :phishing_votes++;
+    endif
+  repeat while (masih ada prediction?) is (ya)
+  ->tidak;
+}
+
+partition "Tentukan Hasil Final" {
+  :Cari kelas dengan votes tertinggi;
+  
+  :final_prediction = kelas dengan max votes;
+  
+  :Hitung probabilitas setiap kelas:
+  P(class) = votes(class) / 100;
+  
+  :probabilities = {
+    'benign': benign_votes/100,
+    'defacement': defacement_votes/100,
+    'malware': malware_votes/100,
+    'phishing': phishing_votes/100
+  };
+  
+  :confidence = max(probabilities);
+}
+
+:Output:
+- final_prediction
+- confidence
+- probabilities;
+
+stop
+
+@enduml

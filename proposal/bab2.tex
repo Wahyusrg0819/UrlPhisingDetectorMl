@@ -1,0 +1,186 @@
+\chapter{LANDASAN TEORI}
+
+\section{Phishing}
+
+\subsection{Definisi Phishing}
+
+\textit{Phishing} adalah bentuk serangan siber yang menggunakan teknik rekayasa sosial untuk menipu korban agar memberikan informasi sensitif seperti kredensial login, nomor kartu kredit, atau data pribadi lainnya. Penyerang biasanya menyamar sebagai entitas tepercaya melalui email, pesan teks, atau situs web palsu yang tampak legitimate.
+
+\subsection{Jenis-Jenis Phishing}
+
+Berdasarkan metode penyerangannya, \textit{phishing} dapat dikategorikan menjadi beberapa jenis:
+
+\begin{enumerate}
+    \item \textbf{\textit{Email Phishing}}: Serangan melalui email yang berisi tautan ke situs web palsu atau lampiran berbahaya.
+    
+    \item \textbf{\textit{Spear Phishing}}: Serangan yang ditargetkan kepada individu atau organisasi tertentu dengan informasi yang dipersonalisasi.
+    
+    \item \textbf{\textit{Whaling}}: Serangan yang menargetkan eksekutif tingkat tinggi atau individu penting dalam organisasi.
+    
+    \item \textbf{\textit{Smishing}}: Serangan \textit{phishing} melalui SMS atau pesan teks.
+    
+    \item \textbf{\textit{Vishing}}: Serangan \textit{phishing} melalui panggilan telepon atau pesan suara.
+\end{enumerate}
+
+\subsection{Karakteristik URL Phishing}
+
+URL \textit{phishing} memiliki beberapa karakteristik yang dapat diidentifikasi melalui analisis leksikal:
+
+\begin{itemize}
+    \item Panjang URL yang tidak wajar (terlalu panjang atau terlalu pendek)
+    \item Penggunaan karakter khusus yang berlebihan (hyphen, underscore, dll)
+    \item Domain yang mencurigakan atau menyerupai domain legitimate
+    \item Tidak menggunakan protokol HTTPS
+    \item Penggunaan alamat IP sebagai domain
+    \item Subdomain yang kompleks atau menyesatkan
+\end{itemize}
+
+\section{Machine Learning}
+
+\subsection{Definisi Machine Learning}
+
+\textit{Machine Learning} (ML) adalah cabang dari kecerdasan buatan yang memungkinkan sistem komputer untuk belajar dan meningkatkan kinerjanya dari pengalaman tanpa diprogram secara eksplisit. ML menggunakan algoritma statistik untuk mengidentifikasi pola dalam data dan membuat prediksi atau keputusan berdasarkan pola tersebut.
+
+\subsection{Jenis-Jenis Machine Learning}
+
+\begin{enumerate}
+    \item \textbf{\textit{Supervised Learning}}: Pembelajaran dengan data yang sudah dilabeli, di mana model belajar dari pasangan input-output untuk membuat prediksi pada data baru.
+    
+    \item \textbf{\textit{Unsupervised Learning}}: Pembelajaran dengan data tanpa label, di mana model mencari pola atau struktur tersembunyi dalam data.
+    
+    \item \textbf{\textit{Reinforcement Learning}}: Pembelajaran melalui interaksi dengan lingkungan, di mana model belajar dari reward dan punishment.
+\end{enumerate}
+
+\subsection{Algoritma Klasifikasi}
+
+Penelitian ini menggunakan algoritma klasifikasi \textit{supervised learning} untuk mendeteksi URL \textit{phishing}:
+
+\subsubsection{Logistic Regression}
+
+\textit{Logistic Regression} adalah algoritma klasifikasi yang menggunakan fungsi logistik untuk memodelkan probabilitas suatu instance termasuk dalam kelas tertentu. Algoritma ini sederhana, cepat, dan efektif untuk masalah klasifikasi biner maupun multi-class.
+
+\subsubsection{Random Forest}
+
+\textit{Random Forest} adalah algoritma ensemble yang membangun multiple decision trees dan menggabungkan prediksi mereka untuk menghasilkan output yang lebih akurat dan stabil. Algoritma ini robust terhadap overfitting dan dapat menangani fitur yang kompleks.
+
+\section{Fitur Leksikal}
+
+\subsection{Definisi Fitur Leksikal}
+
+Fitur leksikal adalah karakteristik yang dapat diekstraksi dari struktur dan komposisi URL tanpa perlu mengakses konten halaman web. Pendekatan ini memungkinkan deteksi yang cepat dan efisien karena tidak memerlukan rendering halaman atau analisis konten.
+
+\subsection{Jenis Fitur Leksikal}
+
+Fitur leksikal yang digunakan dalam penelitian ini meliputi:
+
+\begin{enumerate}
+    \item \textbf{Panjang URL (\textit{url\_length})}: Total karakter dalam URL
+    \item \textbf{Jumlah Titik (\textit{num\_dots})}: Jumlah karakter titik (.) dalam URL
+    \item \textbf{Keberadaan WWW (\textit{has\_www})}: Indikator keberadaan substring "www"
+    \item \textbf{Keberadaan HTTPS (\textit{has\_https})}: Indikator keberadaan protokol HTTPS
+    \item \textbf{Jumlah Hyphen (\textit{num\_hyphens})}: Jumlah karakter hyphen (-) dalam URL
+    \item \textbf{Jumlah Slash (\textit{num\_slashes})}: Jumlah karakter slash (/) dalam URL
+    \item \textbf{Keberadaan Angka (\textit{has\_numeric})}: Indikator keberadaan karakter numerik
+\end{enumerate}
+
+\section{Teknologi Pengembangan Web}
+
+\subsection{Django REST Framework}
+
+Django REST Framework (DRF) adalah toolkit yang powerful dan fleksibel untuk membangun Web API berbasis Python. DRF menyediakan fitur-fitur seperti serialization, authentication, dan browsable API yang memudahkan pengembangan RESTful API.
+
+\textbf{Keunggulan Django REST Framework:}
+\begin{itemize}
+    \item Dokumentasi yang lengkap dan komunitas yang besar
+    \item Sistem authentication dan permission yang robust
+    \item Serialization yang powerful untuk konversi data
+    \item Browsable API untuk testing dan debugging
+    \item Integrasi mudah dengan berbagai database
+\end{itemize}
+
+\subsection{Next.js}
+
+Next.js adalah framework React yang menyediakan fitur-fitur seperti server-side rendering, static site generation, dan routing yang optimal. Next.js memungkinkan pengembangan aplikasi web yang cepat, SEO-friendly, dan mudah di-maintain.
+
+\textbf{Keunggulan Next.js:}
+\begin{itemize}
+    \item Server-side rendering untuk performa optimal
+    \item Automatic code splitting untuk loading yang cepat
+    \item Built-in routing system yang intuitif
+    \item TypeScript support untuk type safety
+    \item Hot module replacement untuk development yang efisien
+\end{itemize}
+
+\subsection{RESTful API}
+
+REST (Representational State Transfer) adalah arsitektur untuk sistem terdistribusi yang menggunakan protokol HTTP. RESTful API menggunakan metode HTTP standar (GET, POST, PUT, DELETE) untuk operasi CRUD dan format JSON untuk pertukaran data.
+
+\textbf{Prinsip REST:}
+\begin{itemize}
+    \item \textit{Stateless}: Setiap request bersifat independen
+    \item \textit{Client-Server}: Pemisahan antara client dan server
+    \item \textit{Cacheable}: Response dapat di-cache untuk efisiensi
+    \item \textit{Uniform Interface}: Interface yang konsisten dan standar
+\end{itemize}
+
+\section{Evaluasi Model Machine Learning}
+
+\subsection{Metrik Evaluasi}
+
+Untuk mengukur kinerja model klasifikasi, digunakan beberapa metrik evaluasi:
+
+\subsubsection{Akurasi}
+
+Akurasi adalah proporsi prediksi yang benar dari total prediksi:
+
+\begin{equation}
+Akurasi = \frac{TP + TN}{TP + TN + FP + FN}
+\end{equation}
+
+\subsubsection{Presisi}
+
+Presisi adalah proporsi prediksi positif yang benar:
+
+\begin{equation}
+Presisi = \frac{TP}{TP + FP}
+\end{equation}
+
+\subsubsection{Recall}
+
+Recall adalah proporsi instance positif yang terdeteksi dengan benar:
+
+\begin{equation}
+Recall = \frac{TP}{TP + FN}
+\end{equation}
+
+\subsubsection{F1-Score}
+
+F1-Score adalah harmonic mean dari presisi dan recall:
+
+\begin{equation}
+F1\text{-}Score = 2 \times \frac{Presisi \times Recall}{Presisi + Recall}
+\end{equation}
+
+Keterangan:
+\begin{itemize}
+    \item TP (\textit{True Positive}): Prediksi positif yang benar
+    \item TN (\textit{True Negative}): Prediksi negatif yang benar
+    \item FP (\textit{False Positive}): Prediksi positif yang salah
+    \item FN (\textit{False Negative}): Prediksi negatif yang salah
+\end{itemize}
+
+\section{Penelitian Terkait}
+
+Beberapa penelitian terkait deteksi \textit{phishing} menggunakan \textit{machine learning} telah dilakukan sebelumnya:
+
+\begin{enumerate}
+    \item Mohammad et al. (2014) menggunakan \textit{Random Forest} untuk klasifikasi URL \textit{phishing} dengan akurasi 97.98\% menggunakan 30 fitur leksikal dan berbasis host.
+    
+    \item Sahingoz et al. (2019) membandingkan berbagai algoritma ML untuk deteksi \textit{phishing} dan menemukan bahwa \textit{Random Forest} memberikan performa terbaik dengan akurasi 97.4\%.
+    
+    \item Chiew et al. (2019) mengusulkan hybrid ensemble feature selection untuk meningkatkan akurasi deteksi \textit{phishing} menggunakan fitur leksikal.
+    
+    \item Rao dan Pais (2019) mengembangkan sistem deteksi \textit{phishing} real-time menggunakan \textit{machine learning} dengan fokus pada fitur URL.
+\end{enumerate}
+
+Penelitian ini berbeda dengan penelitian sebelumnya dalam hal implementasi aplikasi web yang user-friendly dengan integrasi Django REST Framework dan Next.js untuk memberikan solusi yang praktis dan mudah diakses oleh pengguna umum.

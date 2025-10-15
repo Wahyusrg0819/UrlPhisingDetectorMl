@@ -1,0 +1,52 @@
+@startuml
+!theme plain
+skinparam defaultFontName Times New Roman
+skinparam defaultFontSize 12
+
+actor Pengguna
+participant "Frontend\n(Next.js)" as Frontend
+participant "Backend API\n(Django)" as Backend
+participant "Feature\nExtractor" as Extractor
+participant "ML Model\n(Random Forest)" as Model
+
+Pengguna -> Frontend: Masukkan URL
+activate Frontend
+
+Pengguna -> Frontend: Klik "Analisis"
+Frontend -> Backend: POST /api/predict/\n{url: "..."}
+activate Backend
+
+Backend -> Extractor: extract_features(url)
+activate Extractor
+
+Extractor -> Extractor: Hitung panjang URL
+Extractor -> Extractor: Hitung jumlah titik
+Extractor -> Extractor: Cek keberadaan WWW
+Extractor -> Extractor: Cek keberadaan HTTPS
+Extractor -> Extractor: Hitung jumlah hyphen
+Extractor -> Extractor: Hitung jumlah slash
+Extractor -> Extractor: Cek keberadaan angka
+
+Extractor --> Backend: [features array]
+deactivate Extractor
+
+Backend -> Model: predict(features)
+activate Model
+Model --> Backend: prediction
+deactivate Model
+
+Backend -> Model: predict_proba(features)
+activate Model
+Model --> Backend: probabilities
+deactivate Model
+
+Backend --> Frontend: JSON Response\n{prediction, probabilities, features}
+deactivate Backend
+
+Frontend -> Frontend: Parse response
+Frontend -> Frontend: Update UI
+
+Frontend --> Pengguna: Tampilkan hasil prediksi
+deactivate Frontend
+
+@enduml

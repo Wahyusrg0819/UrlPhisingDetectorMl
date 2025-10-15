@@ -1,0 +1,90 @@
+@startuml
+!theme plain
+skinparam defaultFontName Times New Roman
+skinparam defaultFontSize 12
+
+title Flowchart Logika Prediksi Model Machine Learning
+
+start
+
+:Terima URL dari API request;
+
+:Inisialisasi variabel features = [];
+
+partition "Ekstraksi Fitur Leksikal" {
+  :Hitung url_length = len(URL);
+  
+  :Hitung num_dots = count('.');
+  
+  if ('www' in URL?) then (ya)
+    :has_www = 1;
+  else (tidak)
+    :has_www = 0;
+  endif
+  
+  if ('https' in URL?) then (ya)
+    :has_https = 1;
+  else (tidak)
+    :has_https = 0;
+  endif
+  
+  :Hitung num_hyphens = count('-');
+  
+  :Hitung num_slashes = count('/');
+  
+  if (URL contains digit?) then (ya)
+    :has_numeric = 1;
+  else (tidak)
+    :has_numeric = 0;
+  endif
+  
+  :features = [url_length, num_dots, has_www,
+  has_https, num_hyphens, num_slashes, has_numeric];
+}
+
+partition "Prediksi Model" {
+  :Load Random Forest Model
+  (100 decision trees);
+  
+  :Input features ke model;
+  
+  :Setiap tree melakukan voting;
+  note right
+    100 trees memberikan
+    prediksi individual
+  end note
+  
+  :Agregasi hasil voting
+  dari semua trees;
+  
+  :Tentukan kelas dengan
+  voting terbanyak;
+  
+  :prediction = kelas mayoritas;
+  
+  :Hitung probabilitas
+  untuk setiap kelas;
+  
+  :confidence = max(probabilities);
+}
+
+partition "Validasi & Response" {
+  if (prediction valid?) then (ya)
+    :Buat response object:
+    - prediction
+    - confidence
+    - probabilities (4 kelas)
+    - features (7 fitur)
+    - model_info;
+    
+    :Return JSON response
+    dengan status 200 OK;
+  else (tidak)
+    :Return error response
+    dengan status 500;
+  endif
+}
+
+stop
+
+@enduml

@@ -1,0 +1,113 @@
+\documentclass[12pt,a4paper]{report}
+
+% Packages
+\usepackage[bahasa]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{mathptmx} % Times New Roman font
+
+% Graphics path - untuk mencari gambar di folder diagrams
+\graphicspath{{./}{./diagrams/}}
+
+% Page geometry (untuk isi dokumen)
+\geometry{
+    left=4cm,
+    right=3cm,
+    top=3cm,
+    bottom=3cm
+}
+
+% Line spacing
+\onehalfspacing
+
+% Chapter and section formatting
+\titleformat{\chapter}[display]
+{\fontsize{14}{16}\selectfont\bfseries\centering}
+{\MakeUppercase{\chaptertitlename} \thechapter}{0pt}{\fontsize{14}{16}\selectfont\bfseries\MakeUppercase}
+
+\titleformat{\section}
+{\normalfont\bfseries}
+{\thesection}{1em}{}
+
+\titleformat{\subsection}
+{\normalfont\bfseries}
+{\thesubsection}{1em}{}
+
+% Header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% Hyperlink setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=blue,
+    citecolor=black
+}
+
+% Document information
+\title{PERANCANGAN APLIKASI WEB DETEKSI URL PHISHING MENGGUNAKAN MACHINE LEARNING BERBASIS FITUR LEKSIKAL}
+\author{Wahyu Muliadi Siregar}
+\date{\today}
+
+\begin{document}
+
+% Penomoran halaman romawi untuk bagian awal
+\pagenumbering{roman}
+
+% Cover page (tanpa margin standar, font 14pt)
+\begin{titlepage}
+    \newgeometry{margin=2cm} % Margin khusus untuk cover
+    \centering
+    \vspace*{2cm}
+    
+    {\fontsize{14}{16}\selectfont\bfseries PROPOSAL PROYEK\par}
+    \vspace{1.5cm}
+    
+    {\fontsize{14}{16}\selectfont\bfseries PERANCANGAN APLIKASI WEB DETEKSI URL PHISHING MENGGUNAKAN MACHINE LEARNING BERBASIS FITUR LEKSIKAL\par}
+    \vspace{2cm}
+    
+    % Logo Universitas (ganti dengan file logo yang sesuai)
+    \includegraphics[width=0.3\textwidth]{logo-universitas.png}
+    \vspace{1cm}
+    
+    {\fontsize{14}{16}\selectfont Disusun Oleh:\par}
+    \vspace{0.5cm}
+    {\fontsize{14}{16}\selectfont\bfseries Wahyu Muliadi Siregar\par}
+    {\fontsize{14}{16}\selectfont NPM: 223510883\par}
+    \vspace{2cm}
+    
+    {\fontsize{14}{16}\selectfont\bfseries PROGRAM STUDI INFORMATIKA\par}
+    {\fontsize{14}{16}\selectfont\bfseries FAKULTAS TEKNIK\par}
+    {\fontsize{14}{16}\selectfont\bfseries UNIVERSITAS ISLAM RIAU\par}
+    {\fontsize{14}{16}\selectfont\bfseries \the\year\par}
+\end{titlepage}
+\restoregeometry % Kembalikan ke margin standar setelah cover
+
+% Table of contents (tanpa margin standar)
+\newgeometry{margin=2cm}
+\tableofcontents
+\restoregeometry
+\newpage
+
+% Penomoran halaman angka biasa dimulai dari BAB 1
+\pagenumbering{arabic}
+
+% Include chapters
+\input{bab1.tex}
+\input{bab2.tex}
+\input{bab3.tex}
+
+\end{document}

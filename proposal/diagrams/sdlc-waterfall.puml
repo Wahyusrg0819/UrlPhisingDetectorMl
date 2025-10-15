@@ -1,0 +1,143 @@
+@startuml
+!theme plain
+skinparam defaultFontName Times New Roman
+skinparam defaultFontSize 12
+
+title SDLC Waterfall - Proyek Deteksi URL Phishing
+
+skinparam activity {
+  BackgroundColor<<Phase1>> #E3F2FD
+  BorderColor<<Phase1>> #1976D2
+  BackgroundColor<<Phase2>> #F3E5F5
+  BorderColor<<Phase2>> #7B1FA2
+  BackgroundColor<<Phase3>> #E8F5E9
+  BorderColor<<Phase3>> #388E3C
+  BackgroundColor<<Phase4>> #FFF3E0
+  BorderColor<<Phase4>> #F57C00
+  BackgroundColor<<Phase5>> #FCE4EC
+  BorderColor<<Phase5>> #C2185B
+  BackgroundColor<<Phase6>> #E0F2F1
+  BorderColor<<Phase6>> #00796B
+}
+
+start
+
+partition "**FASE 1: Requirements Analysis**" #LightBlue {
+  :Identifikasi masalah phishing;
+  :Analisis kebutuhan sistem;
+  :Studi literatur ML & phishing detection;
+  :Definisi 7 fitur leksikal;
+  note right
+    **Output:**
+    • Rumusan masalah (3 poin)
+    • Tujuan penelitian
+    • Requirement specification
+  end note
+}
+
+-[#1976D2,bold]->
+
+partition "**FASE 2: System Design**" #Lavender {
+  :Perancangan arsitektur sistem;
+  :Desain flowchart & use case;
+  :Desain sequence diagram;
+  :Desain API endpoint;
+  :Desain UI/UX mockup;
+  note right
+    **Output:**
+    • Diagram arsitektur
+    • Flowchart proses
+    • API specification
+    • UI wireframe
+  end note
+}
+
+-[#7B1FA2,bold]->
+
+partition "**FASE 3: Implementation**" #LightGreen {
+  fork
+    :Training Random Forest Model
+    (651,191 URLs);
+  fork again
+    :Implementasi Backend
+    Django REST Framework;
+  fork again
+    :Implementasi Frontend
+    Next.js + TypeScript;
+  end fork
+  :Integrasi Frontend-Backend-Model;
+  note right
+    **Output:**
+    • phishing_model.pkl (90.82%)
+    • Backend API
+    • Frontend UI
+    • Feature extractor
+  end note
+}
+
+-[#388E3C,bold]->
+
+partition "**FASE 4: Testing & Evaluation**" #LightYellow {
+  :Model evaluation
+  (Accuracy, Precision, Recall, F1);
+  :Unit testing
+  (Feature extraction);
+  :Integration testing
+  (API endpoints);
+  :User acceptance testing
+  (UI/UX);
+  note right
+    **Output:**
+    • Test results (90.82%)
+    • Confusion matrix
+    • 6 visualizations
+    • Performance report
+  end note
+}
+
+-[#F57C00,bold]->
+
+partition "**FASE 5: Deployment**" #LightPink {
+  :Setup environment
+  (Python, Node.js);
+  :Deploy backend
+  (localhost:8000);
+  :Deploy frontend
+  (localhost:3000);
+  :Integration testing;
+  note right
+    **Output:**
+    • Running application
+    • Deployment guide
+    • User documentation
+  end note
+}
+
+-[#C2185B,bold]->
+
+partition "**FASE 6: Maintenance**" #LightCyan {
+  :Monitor performance;
+  :Bug fixes (jika ada);
+  :Model retraining (periodic);
+  :Feature updates (optional);
+  note right
+    **Output:**
+    • Maintenance log
+    • Updated model
+    • Bug fix reports
+  end note
+}
+
+stop
+
+legend right
+  |= Fase |= Durasi |= Status |
+  | Requirements | 2 minggu | <color:green>✓ Selesai</color> |
+  | Design | 2 minggu | <color:green>✓ Selesai</color> |
+  | Implementation | 4 minggu | <color:green>✓ Selesai</color> |
+  | Testing | 2 minggu | <color:green>✓ Selesai</color> |
+  | Deployment | 1 minggu | <color:orange>⚠ In Progress</color> |
+  | Maintenance | Ongoing | <color:gray>○ Future</color> |
+endlegend
+
+@enduml

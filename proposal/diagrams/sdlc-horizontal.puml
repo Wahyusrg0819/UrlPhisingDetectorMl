@@ -1,0 +1,49 @@
+@startuml
+!theme plain
+skinparam defaultFontName Times New Roman
+skinparam defaultFontSize 11
+
+title SDLC Waterfall - Horizontal Flow (Left to Right)
+
+left to right direction
+
+skinparam component {
+  BackgroundColor<<Phase1>> #E3F2FD
+  BorderColor<<Phase1>> #1976D2
+  BackgroundColor<<Phase2>> #F3E5F5
+  BorderColor<<Phase2>> #7B1FA2
+  BackgroundColor<<Phase3>> #E8F5E9
+  BorderColor<<Phase3>> #388E3C
+  BackgroundColor<<Phase4>> #FFF3E0
+  BorderColor<<Phase4>> #F57C00
+  BackgroundColor<<Phase5>> #FCE4EC
+  BorderColor<<Phase5>> #C2185B
+  BackgroundColor<<Phase6>> #E0F2F1
+  BorderColor<<Phase6>> #00796B
+}
+
+package "Bulan 1" {
+  component [**Requirements**\n**Analysis**\n━━━━━━━━━━━━\n• Identifikasi\n• Analisis\n• Studi literatur\n• Definisi fitur\n\n<color:green>✓ 2 minggu</color>] as REQ <<Phase1>>
+  
+  component [**System**\n**Design**\n━━━━━━━━━━━━\n• Arsitektur\n• Flowchart\n• API design\n• UI mockup\n\n<color:green>✓ 2 minggu</color>] as DESIGN <<Phase2>>
+}
+
+package "Bulan 2-3" {
+  component [**Implementation**\n━━━━━━━━━━━━━━━━\n• ML Model\n• Backend\n• Frontend\n• Integration\n\n<color:green>✓ 4 minggu</color>] as IMPL <<Phase3>>
+  
+  component [**Testing &**\n**Evaluation**\n━━━━━━━━━━━━\n• Model eval\n• Unit test\n• Integration\n• UAT\n\n<color:green>✓ 2 minggu</color>] as TEST <<Phase4>>
+}
+
+package "Bulan 4" {
+  component [**Deployment**\n━━━━━━━━━━━━━\n• Setup\n• Deploy\n• Docs\n\n<color:orange>⚠ 1 minggu</color>] as DEPLOY <<Phase5>>
+  
+  component [**Maintenance**\n━━━━━━━━━━━━━━\n• Monitor\n• Bug fix\n• Update\n\n<color:gray>○ Ongoing</color>] as MAINT <<Phase6>>
+}
+
+REQ -right[#1976D2,bold]-> DESIGN : Requirement\nSpec
+DESIGN -right[#7B1FA2,bold]-> IMPL : Design\nDocument
+IMPL -right[#388E3C,bold]-> TEST : Working\nSystem
+TEST -right[#F57C00,bold]-> DEPLOY : Test\nReport
+DEPLOY -right[#C2185B,bold]-> MAINT : Deployed\nApp
+
+@enduml

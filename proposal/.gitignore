@@ -1,0 +1,45 @@
+# LaTeX auxiliary files
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.nav
+*.snm
+*.vrb
+texput.log
+
+# LaTeX output (keep source, ignore compiled)
+*.pdf
+main.pdf
+
+# PlantUML generated files (regenerate with compile.bat/sh)
+diagrams/*.png
+!diagrams/.gitkeep
+
+# PlantUML jar (download separately from plantuml.com)
+diagrams/plantuml.jar
+plantuml.jar
+
+# Backup files
+*.bak
+*.backup
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*~

@@ -1,0 +1,93 @@
+@startuml
+!theme plain
+skinparam defaultFontName Times New Roman
+skinparam defaultFontSize 12
+
+title Flowchart Detail Ekstraksi Fitur Leksikal
+
+start
+
+:Input: URL string;
+
+partition "Fitur 1: url_length" {
+  :length = len(URL);
+  :url_length = length;
+}
+
+partition "Fitur 2: num_dots" {
+  :count = 0;
+  :Iterasi setiap karakter di URL;
+  repeat
+    if (karakter == '.'?) then (ya)
+      :count = count + 1;
+    endif
+  repeat while (masih ada karakter?) is (ya)
+  ->tidak;
+  :num_dots = count;
+}
+
+partition "Fitur 3: has_www" {
+  if (substring 'www' ada di URL?) then (ya)
+    :has_www = 1;
+  else (tidak)
+    :has_www = 0;
+  endif
+}
+
+partition "Fitur 4: has_https" {
+  if (substring 'https' ada di URL?) then (ya)
+    :has_https = 1;
+  else (tidak)
+    :has_https = 0;
+  endif
+}
+
+partition "Fitur 5: num_hyphens" {
+  :count = 0;
+  :Iterasi setiap karakter di URL;
+  repeat
+    if (karakter == '-'?) then (ya)
+      :count = count + 1;
+    endif
+  repeat while (masih ada karakter?) is (ya)
+  ->tidak;
+  :num_hyphens = count;
+}
+
+partition "Fitur 6: num_slashes" {
+  :count = 0;
+  :Iterasi setiap karakter di URL;
+  repeat
+    if (karakter == '/'?) then (ya)
+      :count = count + 1;
+    endif
+  repeat while (masih ada karakter?) is (ya)
+  ->tidak;
+  :num_slashes = count;
+}
+
+partition "Fitur 7: has_numeric" {
+  :found = false;
+  :Iterasi setiap karakter di URL;
+  repeat
+    if (karakter adalah digit 0-9?) then (ya)
+      :found = true;
+      break;
+    endif
+  repeat while (masih ada karakter dan !found?) is (ya)
+  ->tidak;
+  
+  if (found == true?) then (ya)
+    :has_numeric = 1;
+  else (tidak)
+    :has_numeric = 0;
+  endif
+}
+
+:Output: Array fitur
+[url_length, num_dots, has_www, has_https,
+num_hyphens, num_slashes, has_numeric];
+
+stop
+
+@enduml

@@ -1,0 +1,43 @@
+@startuml
+!theme plain
+skinparam defaultFontName Times New Roman
+skinparam defaultFontSize 11
+
+title SDLC Waterfall - Zigzag Flow
+
+left to right direction
+
+skinparam card {
+  BackgroundColor<<Phase1>> #E3F2FD
+  BorderColor<<Phase1>> #1976D2
+  BackgroundColor<<Phase2>> #F3E5F5
+  BorderColor<<Phase2>> #7B1FA2
+  BackgroundColor<<Phase3>> #E8F5E9
+  BorderColor<<Phase3>> #388E3C
+  BackgroundColor<<Phase4>> #FFF3E0
+  BorderColor<<Phase4>> #F57C00
+  BackgroundColor<<Phase5>> #FCE4EC
+  BorderColor<<Phase5>> #C2185B
+  BackgroundColor<<Phase6>> #E0F2F1
+  BorderColor<<Phase6>> #00796B
+}
+
+card "**1. Requirements**\n**Analysis**\n━━━━━━━━━━━━\n✓ Identifikasi masalah\n✓ Analisis kebutuhan\n✓ Studi literatur\n✓ Definisi 7 fitur\n\n<color:green><b>✓ Selesai</b></color>" as REQ <<Phase1>>
+
+card "**2. System**\n**Design**\n━━━━━━━━━━━━\n✓ Arsitektur sistem\n✓ Flowchart\n✓ API design\n✓ UI/UX mockup\n\n<color:green><b>✓ Selesai</b></color>" as DESIGN <<Phase2>>
+
+card "**3. Implementation**\n━━━━━━━━━━━━━━━━\n✓ ML Model (90.82%)\n✓ Backend Django\n✓ Frontend Next.js\n✓ Integration\n\n<color:green><b>✓ Selesai</b></color>" as IMPL <<Phase3>>
+
+card "**4. Testing &**\n**Evaluation**\n━━━━━━━━━━━━\n✓ Model evaluation\n✓ Unit testing\n✓ Integration test\n✓ UAT\n\n<color:green><b>✓ Selesai</b></color>" as TEST <<Phase4>>
+
+card "**5. Deployment**\n━━━━━━━━━━━━━\n⚠ Setup environment\n⚠ Deploy backend\n⚠ Deploy frontend\n⚠ Documentation\n\n<color:orange><b>⚠ In Progress</b></color>" as DEPLOY <<Phase5>>
+
+card "**6. Maintenance**\n━━━━━━━━━━━━━━\n○ Monitor\n○ Bug fixes\n○ Retraining\n○ Updates\n\n<color:gray><b>○ Future</b></color>" as MAINT <<Phase6>>
+
+REQ -right[#1976D2,bold]-> DESIGN
+DESIGN -down[#7B1FA2,bold]-> IMPL
+IMPL -right[#388E3C,bold]-> TEST
+TEST -down[#F57C00,bold]-> DEPLOY
+DEPLOY -right[#C2185B,bold]-> MAINT
+
+@enduml

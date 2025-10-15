@@ -1,0 +1,48 @@
+@startuml
+!theme plain
+skinparam defaultFontName Times New Roman
+skinparam defaultFontSize 12
+
+start
+
+:Pengguna membuka aplikasi web;
+
+:Pengguna memasukkan URL;
+
+:Klik tombol "Analisis";
+
+:Frontend mengirim request ke Backend API;
+
+:Backend menerima URL;
+
+:Ekstraksi fitur leksikal dari URL;
+note right
+  - Panjang URL
+  - Jumlah titik
+  - Keberadaan WWW
+  - Keberadaan HTTPS
+  - Jumlah hyphen
+  - Jumlah slash
+  - Keberadaan angka
+end note
+
+:Load model Machine Learning;
+
+:Prediksi menggunakan model;
+
+:Hitung probabilitas setiap kategori;
+
+:Backend mengirim response ke Frontend;
+
+:Frontend menampilkan hasil prediksi;
+note right
+  - Status (Benign/Phishing/Malware)
+  - Fitur yang diekstrak
+  - Probabilitas setiap kategori
+end note
+
+:Pengguna melihat hasil analisis;
+
+stop
+
+@enduml

@@ -1,0 +1,87 @@
+@startuml
+!theme plain
+skinparam defaultFontName Times New Roman
+skinparam defaultFontSize 11
+
+title Detail Aktivitas Setiap Fase SDLC Waterfall
+
+package "FASE 1: Requirements Analysis" #E3F2FD {
+  [Identifikasi Masalah\nPhishing] as REQ1
+  [Analisis Kebutuhan\nSistem] as REQ2
+  [Studi Literatur\nML & Phishing] as REQ3
+  [Definisi 7 Fitur\nLeksikal] as REQ4
+  
+  REQ1 -down-> REQ2
+  REQ2 -down-> REQ3
+  REQ3 -down-> REQ4
+}
+
+package "FASE 2: System Design" #F3E5F5 {
+  [Arsitektur\nFrontend-Backend-ML] as DES1
+  [Flowchart &\nUse Case] as DES2
+  [Sequence\nDiagram] as DES3
+  [API Endpoint\nDesign] as DES4
+  [UI/UX\nMockup] as DES5
+  
+  DES1 -down-> DES2
+  DES2 -down-> DES3
+  DES3 -down-> DES4
+  DES4 -down-> DES5
+}
+
+package "FASE 3: Implementation" #E8F5E9 {
+  [Training Random Forest\n651,191 URLs] as IMP1
+  [Backend Django\nREST Framework] as IMP2
+  [Frontend Next.js\nTypeScript] as IMP3
+  [Feature Extractor\n7 Fitur] as IMP4
+  [Integration\nFull Stack] as IMP5
+  
+  IMP1 -down-> IMP4
+  IMP2 -down-> IMP5
+  IMP3 -down-> IMP5
+  IMP4 -down-> IMP5
+}
+
+package "FASE 4: Testing & Evaluation" #FFF3E0 {
+  [Model Evaluation\n90.82% Accuracy] as TEST1
+  [Unit Testing\nFeature Extraction] as TEST2
+  [Integration Testing\nAPI Endpoints] as TEST3
+  [UAT\nUI/UX Testing] as TEST4
+  [Generate Visualizations\n6 Charts] as TEST5
+  
+  TEST1 -down-> TEST2
+  TEST2 -down-> TEST3
+  TEST3 -down-> TEST4
+  TEST4 -down-> TEST5
+}
+
+package "FASE 5: Deployment" #FCE4EC {
+  [Setup Environment\nPython + Node.js] as DEP1
+  [Deploy Backend\nlocalhost:8000] as DEP2
+  [Deploy Frontend\nlocalhost:3000] as DEP3
+  [Integration Test\nEnd-to-End] as DEP4
+  
+  DEP1 -down-> DEP2
+  DEP1 -down-> DEP3
+  DEP2 -down-> DEP4
+  DEP3 -down-> DEP4
+}
+
+package "FASE 6: Maintenance" #E0F2F1 {
+  [Monitor\nPerformance] as MAIN1
+  [Bug Fixes\nIssue Tracking] as MAIN2
+  [Model Retraining\nPeriodic] as MAIN3
+  [Feature Updates\nEnhancements] as MAIN4
+  
+  MAIN1 -down-> MAIN2
+  MAIN2 -down-> MAIN3
+  MAIN3 -down-> MAIN4
+}
+
+REQ4 -[#1976D2,bold]-> DES1 : Output:\nRequirement Spec
+DES5 -[#7B1FA2,bold]-> IMP1 : Output:\nDesign Document
+IMP5 -[#388E3C,bold]-> TEST1 : Output:\nWorking System
+TEST5 -[#F57C00,bold]-> DEP1 : Output:\nTest Report
+DEP4 -[#C2185B,bold]-> MAIN1 : Output:\nDeployed App
+
+@enduml
